@@ -1,6 +1,6 @@
 Config = {}
 -- also enables /testcombatlog command which spawns your ped (robbing not suggested)
-Config.Debug = true -- debug prints, red spheres for greenzones
+Config.Debug = false -- debug prints, red spheres for greenzones
 
 Config.Framework = "auto" -- "auto" or "esx", "qbox", "qb"
 Config.Clothing = "illenium" -- "illenium", "custom"
