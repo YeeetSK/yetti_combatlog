@@ -1,0 +1,17 @@
+{
+    "target": "Combatlog Menu",
+    "menu_title": "Combatlog",
+    "menu_info_title": "Information",
+    "menu_info_description": "Get identifiers and the name of the player which disconnected",
+    "submenu_info_title": "Combatlog Info",
+    "submenu_info_name": "IC Name: %s",
+    "submenu_info_id": "ID: %s",
+    "submenu_info_license": "License: %s",
+    "submenu_info_reason": "Reason: %s",
+    "submenu_info_copy": "Copy information to clipboard",
+    "menu_inv_title": "Rob Player",
+    "menu_inv_description": "Open the players inventory and take what you want",
+    "progressbar_robbing": "Robbing Player",
+
+    "copy_information": "Name: %s\t\nID: %s\t\nLicense: %s\t\nReason: %s"
+}
