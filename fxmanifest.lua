@@ -5,7 +5,7 @@ lua54 "yes"
 author 'yeeet.sk'
 description 'Combatlog script with robbing'
 repository 'https://github.com/YeeetSK/yetti_combatlog'
-version 'v1.0.0'
+version 'v1.0.1'
 
 files {
   'locales/*.json'
