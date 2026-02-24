@@ -65,8 +65,3 @@ if Config.Framework == "auto" then
         Config.Framework = "esx"
     end
 end
-
--- framework integration
--- remove test commands
--- configure with normal values
--- preview vid with 2 clients
