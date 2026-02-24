@@ -26,3 +26,4 @@ https://github.com/YeeetSK/yetti_combatlog/releases
 - Framework: ESX or QB or QBOX
 
 ### Preview
+https://youtu.be/swK4C_XpQbI
