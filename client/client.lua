@@ -35,7 +35,7 @@ RegisterNetEvent("yetti_combatlog:client:dropped", function(data)
         end
 
         if Config.Robbing.timePlayerCanRobFor ~= -1 then
-            SetTimeout(Config.Robbing.timePlayerCanRobFor, function ()
+            SetTimeout(Config.Robbing.timeBeforePlayerCanRob + Config.Robbing.timePlayerCanRobFor, function ()
                 players[data.identifier].canRob = false
             end)
         end

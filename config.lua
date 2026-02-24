@@ -46,10 +46,10 @@ Config.Combat = {
 Config.Robbing = {
     enabled = true,
     robDistance = 3, -- how far you can be, otherwise you can't target
-    time = 500, -- progressbar time
-    timeBeforePlayerCanRob = 1000, -- gives player time to join back, set to -1 to be able to rob instantly
+    time = 3000, -- progressbar time
+    timeBeforePlayerCanRob = 120 * 1000, -- gives player time to join back, set to -1 to be able to rob instantly
     -- after the value above passes, how much time the player gets to rob the person, set to -1 for infinite (until ped deleted)
-    timePlayerCanRobFor = 120 * 1000,
+    timePlayerCanRobFor = 60 * 1000,
     anim = {
         dict = "mini@repair",
         clip = "fixing_a_ped"

@@ -1,20 +1,28 @@
-### free-maskzones
-Inspired by a $18 paid script, made in under 1 hour for free, essentially a player takes puts his mask on/off when entering a zone automatically, if he has a whitelisted job he doesn't. This script is FREE and Open Source under the AGPLV3 license. 
+### yetti_combatlog
+This script uses code snippets and similar logic to Randolios Combatlog script, check his script out at https://github.com/Randolio/randol_combatlog/tree/main
 
-Join our discord: https://discord.gg/J92NhM8Dbu
+Join my discord: https://discord.gg/6eucTx84XP
+
+### Features
+- Spawn a ped when a player disconnects from the server for a certain amount of time
+- View character name and r* license with copy button for Players Info
+
+- Other players can rob the ped (which clones the players inventory)
+- Once the player joins back, the items in the players inventory are set to what remained in the "stash" (clone of the inventory) which could be robbed from
+- Configure how much time you give the player to join back before players can rob the ped and configure how much time players have to rob the ped
+- If the player joins back within the time he's given to join back, his combatlog ped is deleted and the "stash" is cleared so players can no longer steal from it
+
+- Combat system, if player isn't in combat other players cannot rob him
+- Detection for holding a weapon, taking damage or punching
+
+- All options are toggles, so you can turn off robbing or the combat system off if you don't like it
+
+### Download
+https://github.com/YeeetSK/yetti_combatlog/releases
 
 ### Dependencies
 - [ox_lib](https://github.com/CommunityOx/ox_lib)
-- Optional: ESX, QB, QBOX for job checking
-
-### Download
-https://github.com/Free-Studios/free-maskzones/releases/
-
-### Features
-- Multiple zones which a customizable job whitelist for each
-- Player puts mask on/off automatically
-- Mask and the texture is saved so the same mask is put on
-- Configurable, translatable
+- [oxmysql](https://github.com/CommunityOx/oxmysql)
+- Framework: ESX or QB or QBOX
 
 ### Preview
-[Preview Link](https://r2.fivemanage.com/xO18jN0YRkOPPmJfbXv4o/free-maskzonespreview-ezgif.com-video-to-gif-converter.gif)

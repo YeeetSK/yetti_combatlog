@@ -75,6 +75,10 @@ function CombatLog(src, reason, coords)
         license = playerCache[src].license,
         canBeRobbed = playerCache[src].canBeRobbed,
     }
+    if not Config.Combat.enabled then
+        data.canBeRobbed = true
+        playerCache[src].canBeRobbed = true
+    end
     playerCache[src].combatlog = true
 
     local stashId = 'yetti_combatlog_stash_' .. data.identifier
