@@ -176,6 +176,7 @@ end)
 
 AddEventHandler('onResourceStart', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then return end
+    lib.versionCheck('YeeetSK/yetti_combatlog')
     if #playerCache == 0 then
         playerCache = GetAllPlayersData() or {}
     end
