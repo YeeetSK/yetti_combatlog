@@ -25,7 +25,7 @@ function GetSkinData(identifier)
 end
 
 function GetAllPlayersData()
-    local xPlayers = ESX.ExtendedPlayers()
+    local xPlayers = ESX.GetExtendedPlayers()
 
     if xPlayers then
         local playerData = {}
@@ -35,7 +35,7 @@ function GetAllPlayersData()
             playerData[src] = {
                 name = GetCharName(src),
                 identifier = GetPlyIdentifier(src),
-                license = GetPlayerIdentifierByType(src, 'license')
+                license = GetConvar('esx:identifier', 'license') or GetPlayerIdentifierByType(src, 'license')
             }
         end
         return playerData
@@ -48,7 +48,7 @@ function GetAllPlayersData()
 end
 
 function GetPlayerInventory(identifier)
-    local result = MySQL.single.await('SELECT inventory FROM players WHERE citizenid = ?', {
+    local result = MySQL.single.await('SELECT inventory FROM users WHERE citizenid = ?', {
         identifier
     })
     return result.inventory
