@@ -1,5 +1,6 @@
 if Config.Framework ~= "esx" then return end
 local ESX = exports['es_extended']:getSharedObject()
+local mainIdentifier = GetConvar('esx:identifier', 'license')
 
 function GetCharName(src)
     local xPlayer = ESX.GetPlayerFromId(src)
@@ -35,7 +36,7 @@ function GetAllPlayersData()
             playerData[src] = {
                 name = GetCharName(src),
                 identifier = GetPlyIdentifier(src),
-                license = GetConvar('esx:identifier', 'license') or GetPlayerIdentifierByType(src, 'license')
+                license = GetPlayerIdentifierByType(src, mainIdentifier)
             }
         end
         return playerData
