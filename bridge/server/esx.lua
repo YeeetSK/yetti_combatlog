@@ -48,7 +48,7 @@ function GetAllPlayersData()
 end
 
 function GetPlayerInventory(identifier)
-    local result = MySQL.single.await('SELECT inventory FROM users WHERE citizenid = ?', {
+    local result = MySQL.single.await('SELECT inventory FROM users WHERE identifier = ?', {
         identifier
     })
     return result.inventory
