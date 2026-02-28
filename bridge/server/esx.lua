@@ -1,5 +1,6 @@
 if Config.Framework ~= "esx" then return end
 local ESX = exports['es_extended']:getSharedObject()
+local mainIdentifier = GetConvar('esx:identifier', 'license')
 
 function GetCharName(src)
     local xPlayer = ESX.GetPlayerFromId(src)
@@ -25,7 +26,7 @@ function GetSkinData(identifier)
 end
 
 function GetAllPlayersData()
-    local xPlayers = ESX.ExtendedPlayers()
+    local xPlayers = ESX.GetExtendedPlayers()
 
     if xPlayers then
         local playerData = {}
@@ -35,7 +36,7 @@ function GetAllPlayersData()
             playerData[src] = {
                 name = GetCharName(src),
                 identifier = GetPlyIdentifier(src),
-                license = GetPlayerIdentifierByType(src, 'license')
+                license = GetPlayerIdentifierByType(xPlayer.source, mainIdentifier)
             }
         end
         return playerData
@@ -48,7 +49,7 @@ function GetAllPlayersData()
 end
 
 function GetPlayerInventory(identifier)
-    local result = MySQL.single.await('SELECT inventory FROM players WHERE citizenid = ?', {
+    local result = MySQL.single.await('SELECT inventory FROM users WHERE identifier = ?', {
         identifier
     })
     return result.inventory
