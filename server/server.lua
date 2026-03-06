@@ -28,18 +28,16 @@ function OnPlayerLoaded(src)
     for oldSrc, data in pairs(playerCache) do
         if data.identifier == identifier and data.combatlog then
             TriggerClientEvent("yetti_combatlog:client:joinedBack", -1, identifier)
-
-            if Config.Robbing.enabled and playerCache[oldSrc].canBeRobbed then
-                local stashItems = exports.ox_inventory:GetInventoryItems('yetti_combatlog_stash_' .. data.identifier)
-                exports.ox_inventory:ClearInventory('yetti_combatlog_stash_' .. data.identifier)
-                exports.ox_inventory:ClearInventory(src)
-
-                -- give items based on what the player took
-                for k, info in pairs(stashItems) do
-                    exports.ox_inventory:AddItem(src, info.name, info.count, info.metadata or {}, info.slot)
-                end
-            end
             playerCache[oldSrc] = nil
+
+            local stashItems = exports.ox_inventory:GetInventoryItems('yetti_combatlog_stash_' .. data.identifier)
+            exports.ox_inventory:ClearInventory('yetti_combatlog_stash_' .. data.identifier)
+            exports.ox_inventory:ClearInventory(src)
+
+            -- give items based on what the player took
+            for k, info in pairs(stashItems) do
+                exports.ox_inventory:AddItem(src, info.name, info.count, info.metadata or {}, info.slot)
+            end
         end
     end
 
@@ -137,6 +135,7 @@ local combatStatusCooldown = {}
 RegisterNetEvent("yetti_combatlog:server:setCombatStatus", function (status)
     local src = source
     if combatStatusCooldown[src] then DropPlayer(src, 'Combatlog - exploit detected') return end
+    if not playerCache[src] then return end
 
     combatStatusCooldown[src] = true
     if Config.Debug then
@@ -178,7 +177,6 @@ end)
 
 AddEventHandler('onResourceStart', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then return end
-    lib.versionCheck('YeeetSK/yetti_combatlog')
     if #playerCache == 0 then
         playerCache = GetAllPlayersData() or {}
     end
